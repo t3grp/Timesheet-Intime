@@ -1,9 +1,14 @@
 name: NPM Format Check
 
-on: [push]
+on:
+  pull_request:
+    types: [labeled, unlabeled, opened, synchronize, reopened, ready_for_review, edited]
+  schedule:
+    - cron: '16 19 * * *'
 
 jobs:
   format-check:
+    if: ${{ github.event_name != 'pull_request' || (github.event.pull_request.head.repo.full_name == github.repository && contains(github.event.pull_request.labels.*.name, 'release')) }}
     runs-on: ubuntu-latest
     timeout-minutes: 10
 

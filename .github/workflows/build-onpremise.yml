@@ -5,12 +5,6 @@ on:
       - develop
     tags:
       - '*'
-  pull_request:
-    paths:
-      - '.github/workflows/build-onpremise.yml'
-      - '.dockerignore'
-      - 'extensions/manifest.json'
-      - 'docker/prod/**'
   workflow_dispatch:
 
 permissions:

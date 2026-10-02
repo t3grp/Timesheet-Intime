@@ -5,11 +5,6 @@ on:
       - develop
     tags:
       - '*'
-  pull_request:
-    paths:
-      - '.github/workflows/build-public.yml'
-      - '.dockerignore'
-      - 'docker/prod/**'
   workflow_dispatch:
 
 permissions:
